@@ -5,6 +5,9 @@ respond to bugs in this release, to stabilize it for the major release.
 
 ### Changes or improvements
 
+* Stash messages containing newlines will now be replaced with spaces;
+  they will no longer be (erroneously) written to the repository.
+
 * `git_commit_create_with_signature` now verifies the commit information
   to ensure that it points to a valid tree and valid parents.
 

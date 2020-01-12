@@ -5,6 +5,34 @@ respond to bugs in this release, to stabilize it for the major release.
 
 ### Changes or improvements
 
+* Relative symbolic links are now supported on Windows when `core.symlinks`
+  is enabled.
+
+* Servers that provide query parameters with a redirect are now supported.
+
+* `git_submodule_sync` will now resolve relative URLs.
+
+* When creating git endpoint URLs, double-slashes are no longer used when
+  the given git URL has a trailing slash.
+
+* On Windows, a `DllMain` function is no longer included and thread-local
+  storage has moved to fiber-local storage in order to prevent race
+  conditions during shutdown.
+
+* The tracing mechanism (`GIT_TRACE`) is now enabled by default and does
+  not need to be explicitly enabled in CMake.
+
+* The size of Git objects is now represented by `git_object_size_t`
+  instead of `off_t`.
+
+* Binary patches without data can now be parsed.
+
+* A configuration snapshot can now be created from another configuration
+  snapshot, not just a "true" configuration object.
+
+* The `git_commit_with_signature` API will now ensure that referenced
+  objects exist in the object database.
+
 * Stash messages containing newlines will now be replaced with spaces;
   they will no longer be (erroneously) written to the repository.
 
@@ -159,6 +187,11 @@ respond to bugs in this release, to stabilize it for the major release.
 
 ### API additions
 
+* The SSH host key now supports SHA-256 when `GIT_CERT_SSH_SHA256` is set.
+
+* The diff format option `GIT_DIFF_FORMAT_PATCH_ID` can now be used to
+  emit an output like `git patch-id`.
+
 * The `git_apply_options_init` function will initialize a
   `git_apply_options` structure.
 
@@ -287,6 +320,7 @@ release:
 
 * Aaron Patterson
 * Alberto Fanjul
+* Anders Borum
 * Augie Fackler
 * Augustin Fabre
 * brian m. carlson
@@ -295,6 +329,7 @@ release:
 * cheese1
 * Dan Skorupski
 * Daniel Cohen Gindi
+* Dave Lee
 * David Brooks
 * David Turner
 * Denis Laxalde
@@ -305,6 +340,7 @@ release:
 * Eric Huss
 * Erik Aigner
 * Etienne Samson
+* Gregory Herrero
 * Heiko Voigt
 * Ian Hattendorf
 * Jacques Germishuys
@@ -312,10 +348,16 @@ release:
 * Jason Haslam
 * Johannes Schindelin
 * Jordan Wallet
+* Josh Bleecher Snyder
+* kas
+* kdj0c
 * Laurence McGlashan
 * lhchavez
+* Lukas Berk
 * Max Kostyukevich
 * Patrick Steinhardt
+* pcpthm
+* Remy Suen
 * Robert Coup
 * romkatv
 * Scott Furry

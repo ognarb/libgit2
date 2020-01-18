@@ -5,6 +5,11 @@ respond to bugs in this release, to stabilize it for the major release.
 
 ### Changes or improvements
 
+* The `HEAD` symbolic reference can no longer be deleted.
+
+* `git_merge_driver_source_repo` no longer returns a `const git_repository *`,
+  it now returns a non-`const` `git_repository *`.
+
 * Relative symbolic links are now supported on Windows when `core.symlinks`
   is enabled.
 

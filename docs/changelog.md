@@ -5,6 +5,44 @@ respond to bugs in this release, to stabilize it for the major release.
 
 ### Changes or improvements
 
+* Some credential structures, enums and values have been renamed:
+  `git_cred` is now `git_credential`.  `git_credtype_t` is now
+  `git_credential_t`.  Functions and types beginning with
+  `git_cred_` now begin with `git_credential`, and constants beginning
+  with `GIT_CREDTYPE` now begin with `GIT_CREDENTIAL`.  The former names
+  are deprecated.
+
+* Several function signatures have been changed to return an `int` to
+  indicate error conditions.  We encourage you to check them for errors
+  in the standard way. 
+
+  * `git_attr_cache_flush`
+  * `git_error_set_str`
+  * `git_index_name_clear`
+  * `git_index_reuc_clear`
+  * `git_libgit2_version`
+  * `git_mempack_reset`
+  * `git_oid_cpy`
+  * `git_oid_fmt`
+  * `git_oid_fromraw`
+  * `git_oid_nfmt`
+  * `git_oid_pathfmt`
+  * `git_remote_stop`
+  * `git_remote_disconnect`
+  * `git_repository__cleanup`
+  * `git_repository_set_config`
+  * `git_repository_set_index`
+  * `git_repository_set_odb`
+  * `git_repository_set_refdb`
+  * `git_revwalk_reset`
+  * `git_revwalk_simplify_first_parent`
+  * `git_revwalk_sorting`
+  * `git_treebuilder_clear`
+  * `git_treebuilder_filter`
+
+* The NTLM and Negotiate authentication mechanisms are now supported when
+  talking to git implementations hosted on Apache or nginx servers.
+
 * The `HEAD` symbolic reference can no longer be deleted.
 
 * `git_merge_driver_source_repo` no longer returns a `const git_repository *`,

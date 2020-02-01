@@ -1,7 +1,11 @@
 v0.99
 ---------
-This is the last minor release before libgit2 1.0.  We expect to only
-respond to bugs in this release, to stabilize it for the major release.
+This is v0.99 "Torschlusspanik".  This will be the last minor release
+before libgit2 v1.0.  We expect to only respond to bugs in this release,
+to stabilize it for next major release.
+
+It contains significant refactorings, but is expected to be API-compatible
+with v0.28.0.
 
 ### Changes or improvements
 
@@ -366,6 +370,7 @@ release:
 * Anders Borum
 * Augie Fackler
 * Augustin Fabre
+* Ayush Shridhar
 * brian m. carlson
 * buddyspike
 * Carlos Martín Nieto
